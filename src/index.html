@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8"/>
+  
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+  
+  <title>${component-formatted-name}</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="./dist/demo/styles.css"/>
+  <link rel="stylesheet" href="./dist/demo/${component-name}.css"/>
+  
+  <script src="./vendors/angular.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <div class="col-12">
+      <span class="navbar-brand mb-0 h1">${component-formatted-name}</span>
+      <a class="navbar-brand pull-right" href="https://github.com/gigioSouza/vanilla-component-gulp-sass-builder">
+        <i class="fa fa-github"></i>
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container" ng-app="demo" ng-controller="demoController as vm">
+  <div class="col-12">
+  
+    <ng-advanced-drag-drop-filter filters="vm.filters" default="vm.defaultFilter">
+      
+      <div data-id="input1" data-name="Input 1" data-icon="fa-filter" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>Input 1</label>
+          <input type="text" class="form-control" ng-model="nomeFilter" />
+        </div>
+      </div>
+  
+      <div data-id="input2" data-name="Input 2" data-icon="fa-filter" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>Input 2</label>
+          <input type="text" class="form-control" ng-model="nomeFilter" />
+        </div>
+      </div>
+  
+      <div data-id="input3" data-name="Input 3" data-icon="fa-filter" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>Input 3</label>
+          <input type="text" class="form-control" ng-model="nomeFilter" />
+        </div>
+      </div>
+  
+      <div data-id="input4" data-name="Input 4" data-icon="fa-filter" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>Input 4</label>
+          <input type="text" class="form-control" ng-model="nomeFilter" />
+        </div>
+      </div>
+
+    </ng-advanced-drag-drop-filter>
+  </div>
+</div>
+
+<script type="text/javascript" src="./dist/demo/${component-name}.js"></script>
+<script type="text/javascript" src="./dist/demo/main.js"></script>
+</body>
+
+</html>
