@@ -12,11 +12,14 @@ ng-advanced-drag-drop-filter {
     }
     .selected-container, .available-container {
       min-height: 200px;
-      border: 1px black solid;
 
       .selected-fields, .available-fields {
         min-height: 200px;
-        border: 1px black solid;
+      }
+
+      .dragging {
+        opacity: 0.5;
+        border: 1px dashed black;
       }
 
       &.editing {
@@ -32,7 +35,13 @@ ng-advanced-drag-drop-filter {
             }
           }
         }
+
+        .selected-fields, .available-fields {
+          border: 1px dashed black;
+        }
       }
+    }
+    .available-fields {
     }
     .source-fields {
       display: none;

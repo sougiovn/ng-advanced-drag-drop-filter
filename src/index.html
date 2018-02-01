@@ -31,34 +31,57 @@
 
 <div class="container" ng-app="demo" ng-controller="demoController as vm">
   <div class="col-12">
-  
-    <ng-advanced-drag-drop-filter filters="vm.filters" default="vm.defaultFilter">
+    <h3 class="anchor" id="how-to">
+      Modo de uso <a href="#how-to"><i class="fa fa-link"></i></a>
+    </h3>
+    <p>
+      Importe o módulo <code>nggs.currency-range-slider</code> em seu app. <br/>
+    </p>
+    <h6>Exemplo</h6>
+    <pre>angular.module('yourApp', ['nggs.advanced-drag-drop-filter']);</pre>
+    
+    <ng-advanced-drag-drop-filter
+      filters="vm.filters"
+      default="vm.defaultFilter"
+      on-save="vm.onSave($event)"
+      on-change-filter="vm.onChange($event)"
+      on-set-default="vm.onSetDefault($event)">
       
-      <div data-id="input1" data-name="Input 1" data-icon="fa-filter" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6">
+      <div data-id="input" data-name="Input" data-icon="fa-keyboard-o" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6">
         <div class="form-group">
-          <label>Input 1</label>
+          <label>Input</label>
           <input type="text" class="form-control" ng-model="nomeFilter" />
         </div>
       </div>
   
-      <div data-id="input2" data-name="Input 2" data-icon="fa-filter" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6">
+      <div data-id="select" data-name="Select" data-icon="fa-list" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6">
         <div class="form-group">
-          <label>Input 2</label>
-          <input type="text" class="form-control" ng-model="nomeFilter" />
+          <label>Select</label>
+          <select>
+            <option>Option 1</option>
+            <option>Option 2</option>
+          </select>
         </div>
       </div>
   
-      <div data-id="input3" data-name="Input 3" data-icon="fa-filter" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6">
+      <div data-id="range" data-name="Range" data-icon="fa-arrows-h" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6">
         <div class="form-group">
-          <label>Input 3</label>
-          <input type="text" class="form-control" ng-model="nomeFilter" />
+          <label>Range</label>
+          <input type="range" />
         </div>
       </div>
   
-      <div data-id="input4" data-name="Input 4" data-icon="fa-filter" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6">
+      <div data-id="datepicker" data-name="Datepicker" data-icon="fa-calendar" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6">
         <div class="form-group">
-          <label>Input 4</label>
-          <input type="text" class="form-control" ng-model="nomeFilter" />
+          <label>Datepicker</label>
+          <input type="date" />
+        </div>
+      </div>
+  
+      <div data-id="color" data-name="Colorpicker" data-icon="fa-tint" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>Colorpicker</label>
+          <input type="color" />
         </div>
       </div>
 

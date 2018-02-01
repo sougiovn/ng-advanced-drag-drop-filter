@@ -7,11 +7,12 @@ ng-advanced-drag-drop-filter .advanced-drag-drop-filter .control-container {
     float: right; }
 
 ng-advanced-drag-drop-filter .advanced-drag-drop-filter .selected-container, ng-advanced-drag-drop-filter .advanced-drag-drop-filter .available-container {
-  min-height: 200px;
-  border: 1px black solid; }
+  min-height: 200px; }
   ng-advanced-drag-drop-filter .advanced-drag-drop-filter .selected-container .selected-fields, ng-advanced-drag-drop-filter .advanced-drag-drop-filter .selected-container .available-fields, ng-advanced-drag-drop-filter .advanced-drag-drop-filter .available-container .selected-fields, ng-advanced-drag-drop-filter .advanced-drag-drop-filter .available-container .available-fields {
-    min-height: 200px;
-    border: 1px black solid; }
+    min-height: 200px; }
+  ng-advanced-drag-drop-filter .advanced-drag-drop-filter .selected-container .dragging, ng-advanced-drag-drop-filter .advanced-drag-drop-filter .available-container .dragging {
+    opacity: 0.5;
+    border: 1px dashed black; }
   ng-advanced-drag-drop-filter .advanced-drag-drop-filter .selected-container.editing .selected-fields [draggable=true]:before, ng-advanced-drag-drop-filter .advanced-drag-drop-filter .available-container.editing .selected-fields [draggable=true]:before {
     content: '';
     position: absolute;
@@ -19,6 +20,8 @@ ng-advanced-drag-drop-filter .advanced-drag-drop-filter .selected-container, ng-
     top: 0px;
     width: 100%;
     height: 100%; }
+  ng-advanced-drag-drop-filter .advanced-drag-drop-filter .selected-container.editing .selected-fields, ng-advanced-drag-drop-filter .advanced-drag-drop-filter .selected-container.editing .available-fields, ng-advanced-drag-drop-filter .advanced-drag-drop-filter .available-container.editing .selected-fields, ng-advanced-drag-drop-filter .advanced-drag-drop-filter .available-container.editing .available-fields {
+    border: 1px dashed black; }
 
 ng-advanced-drag-drop-filter .advanced-drag-drop-filter .source-fields {
   display: none; }

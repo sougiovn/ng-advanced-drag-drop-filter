@@ -1,0 +1,21 @@
+nav {
+  margin-bottom: 16px; }
+
+h3, h5 {
+  margin: 16px 0px; }
+
+.anchor a {
+  color: black;
+  visibility: hidden; }
+  .anchor a:hover {
+    text-decoration: none; }
+  .anchor a i {
+    transform: rotate(90deg); }
+
+.anchor:hover a {
+  visibility: visible; }
+
+pre {
+  background-color: #eeeeee;
+  padding: 8px;
+  border-radius: 8px; }

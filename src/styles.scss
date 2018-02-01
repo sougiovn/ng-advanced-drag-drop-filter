@@ -1,0 +1,31 @@
+nav {
+  margin-bottom: 16px;
+}
+
+h3, h5 {
+  margin: 16px 0px;
+}
+
+.anchor {
+  a {
+    color: black;
+    visibility: hidden;
+    &:hover {
+      text-decoration: none;
+    }
+    i {
+      transform: rotate(90deg);
+    }
+  }
+  &:hover {
+    a {
+      visibility: visible;
+    }
+  }
+}
+
+pre {
+  background-color: lighten(grey, 43%);
+  padding: 8px;
+  border-radius: 8px;
+}
