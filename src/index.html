@@ -40,9 +40,291 @@
     <h6>Exemplo</h6>
     <pre>angular.module('yourApp', ['nggs.advanced-drag-drop-filter']);</pre>
     
+    <h6>Diretiva completa</h6>
+    <pre>&lt;ng-advanced-drag-drop-filter
+  filters="object array"
+  selected="object"
+  options="object"
+  on-save="function callback"
+  on-change-filter="function callback"
+  on-set-default="function callback">
+  
+  // fields
+  
+&lt;/ng-advanced-drag-drop-filter&gt;</pre>
+  </div>
+  
+  <div class="col-12">
+    <h3 class="anchor" id="attributes">
+      Atributos <a href="#attributes"><i class="fa fa-link"></i></a>
+    </h3>
+    
+    <table class="table table-bordered">
+      <caption>* obrigatório</caption>
+      <thead class="thead-dark">
+        <tr>
+          <th class="parameters">Parâmetro</th>
+          <th class="values">Valor</th>
+          <th class="description">Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>filters</td>
+          <td>object</td>
+          <td>Filtros salvos disponíveis para seleção</td>
+        </tr>
+        <tr>
+          <td>selected</td>
+          <td>object</td>
+          <td>Filtro selecionado</td>
+        </tr>
+        <tr>
+          <td>options</td>
+          <td>object</td>
+          <td>Configuração da diretiva, que sobrescreve a configuração padrão</td>
+        </tr>
+        <tr>
+          <td>on-save</td>
+          <td>callback function</td>
+          <td>
+            Ao salvar um filtro editado ou novo é chamado esse callback passando o filtro em questão por
+            parâmetro <code>$event</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>on-change-filter</td>
+          <td>callback function</td>
+          <td>
+            Ao selecionar um novo filtro é chamado esse callback passando o filtro em questão por
+            parâmetro <code>$event</code>.
+          </td>
+        </tr>
+        <tr>
+          <td>on-set-default</td>
+          <td>callback function</td>
+          <td>
+            É chamado esse callback passando o filtro em questão por parâmetro <code>$event</code>,
+            quando o usuário deseja tornar este filtro o filtro padrão.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h6>Estrutura do objeto de um filtro</h6>
+    <pre>{
+  id: number|string, // filter identifier
+  name: string, // filter name
+  fields: string[] // selected field's ids
+}</pre>
+  </div>
+  
+  <div class="col-12">
+    <h3 class="anchor" id="config">
+      Configuração <a href="#config"><i class="fa fa-link"></i></a>
+    </h3>
+    
+    <p>
+      Para você não de passar sempre os mesmos parâmetros de configuração, você pode usar o Provider de
+      configuração no qual você define uma configuração padrão e pode sobrescrever na diretiva quando desejar.
+    </p>
+    
+    <h6>Parâmetros de configuração</h6>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th colspan="2" class="parameters">Parâmetro</th>
+          <th class="values">Valor</th>
+          <th class="descriptions">Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="9">text</td>
+          <td>filterSelectionLabelText</td>
+          <td>string</td>
+          <td>Label da seleção de filtros</td>
+        </tr>
+        <tr>
+          <td>setDefaultButtonText</td>
+          <td>string</td>
+          <td>Texto do botão para definir filtro como padrão</td>
+        </tr>
+        <tr>
+          <td>editButtonText</td>
+          <td>string</td>
+          <td>Texto do botão para editar filtro selecionado</td>
+        </tr>
+        <tr>
+          <td>newButtonText</td>
+          <td>string</td>
+          <td>Texto do botão para criar novo filtro</td>
+        </tr>
+        <tr>
+          <td>cancelButton</td>
+          <td>string</td>
+          <td>Texto do botão para cancelar edição/criação de filtro</td>
+        </tr>
+        <tr>
+          <td>saveButtonText</td>
+          <td>string</td>
+          <td>Texto do botão para salvar edição/criação de filtro</td>
+        </tr>
+        <tr>
+          <td>selectedFilterLabelText</td>
+          <td>string</td>
+          <td>Label do nome do filtro selecionado/novo filtro</td>
+        </tr>
+        <tr>
+          <td>availableContainerLabelText</td>
+          <td>string</td>
+          <td>Texto sobre container de campos disponíveis</td>
+        </tr>
+        <tr>
+          <td>selectedEmptyMessageText</td>
+          <td>string</td>
+          <td>Mensagem para quando não houver nenhum filtro selecionado</td>
+        </tr>
+        <tr>
+          <td rowspan="6">styleClasses</td>
+          <td>setDefaultButtonClass</td>
+          <td>string</td>
+          <td>Classe css para atribuir ao botão para definir filtro como padrão</td>
+        </tr>
+        <tr>
+          <td>editButtonClass</td>
+          <td>string</td>
+          <td>Classe css para atribuir ao botão para editar filtro selecionado</td>
+        </tr>
+        <tr>
+          <td>newButtonClass</td>
+          <td>string</td>
+          <td>Classe css para atribuir ao botão para criar novo filtro</td>
+        </tr>
+        <tr>
+          <td>cancelButtonClass</td>
+          <td>string</td>
+          <td>Classe css para atribuir ao botão para cancelar edição/criação de filtro</td>
+        </tr>
+        <tr>
+          <td>saveButtonClass</td>
+          <td>string</td>
+          <td>Classe css para atribuir ao botão para salvar edição/criação de filtro</td>
+        </tr>
+        <tr>
+          <td>selectedEmptyMessageClass</td>
+          <td>string</td>
+          <td>Classe css para atribuir à mensagem para quando não houver nenhum filtro selecionado</td>
+        </tr>
+        <tr>
+          <td colspan="2">iconPrefix</td>
+          <td>string</td>
+          <td>Classe css para prefixar as classes de ícones, dos campos disponíveis para seleção</td>
+        </tr>
+        <tr>
+          <td colspan="2" rowspan="2">filterValidationFn</td>
+          <td>function</td>
+          <td rowspan="2">
+            Função de validação do formulário de filtro. Usado para desabilitar botão de salvar.
+            Recebe filtro sendo editado/criado e retorna <code>true</code> ou <code>falso</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <pre>function defaultValidationFn(filter) {
+  return (filter.name &&
+    filter.name.length > 0 &&
+    filter.fields.length > 0);
+}</pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h6>Exemplo</h6>
+    <pre>angular.module('yourApp', ['nggs.advanced-drag-drop-filter'])
+  .config(config);
+  
+config.$inject = ['ngAdvancedDragDropFilterConfigProvider'];
+
+function config(ngAdvancedDragDropFilterConfig) {
+  ngAdvancedDragDropFilterConfig.setDefaults({
+    texts: {
+      filterSelectionLabelText: 'Filters: ',
+      setDefaultButtonText: 'Set as default',
+      editButtonText: 'Edit',
+      newButtonText: 'New',
+      cancelButtonText: 'Cancel',
+      saveButtonText: 'Save',
+      selectedFilterLabelText: 'Filter\'s name: ',
+      availableContainerLabelText: 'Available fields',
+      selectedEmptyMessageText: 'Select or create a new filter configuration'
+    },
+    styleClasses: {
+      setDefaultButtonClass: '',
+      editButtonClass: '',
+      newButtonClass: '',
+      cancelButtonClass: '',
+      saveButtonClass: '',
+      selectedEmptyMessageClass: ''
+    },
+    iconPrefix: '',
+    filterValidationFn: ''
+  });
+}</pre>
+    <small>Os valores dos atributos acima são os valores default caso nada seja configurado.</small>
+  </div>
+  
+  <div class="col-12">
+    <h3 class="anchor" id="defining-fields">
+      Definindo campos <a href="#defining-fields"><i class="fa fa-link"></i></a>
+    </h3>
+    
+    <p>
+      Você deve colocar todos os campos do seu formulário dentro da diretiva.
+      É recomendado que coloque-os separadamente dentro de uma <code>&lt;div&gt;</code> pois é garantido a funcionalidade de
+      <code>draggable</code>.
+    </p>
+    
+    <p>
+      Os campos devem conter, <strong>obrigatóriamente</strong>, os seguintes atributos:
+    
+      <ul>
+        <li><code>draggable="true"</code></li>
+        <li><code>data-id</code></li>
+        <li><code>data-name</code></li>
+      </ul>
+    
+      Se algum campo não conter <code>draggable="true"</code> será ignorado.<br />
+      <br />
+      <code>data-id</code> é usado para saber quais campos devem aparecer no filtro selecionado, corresponde as strings
+        do atributo <code>fields</code> dos filtros.<br />
+      <br />
+      <code>data-name</code> é usado para representar o campo enquanto este estiver na parte de campos disponíveis.<br />
+      <br />
+      Caso queira ter um ícone junto ao nome dos campos disponíveis, use o atributo <code>data-icon</code>
+      passando uma string com a classe do ícone.
+    </p>
+  </div>
+  
+  <div class="col-12">
+    <h3 class="anchor" id="style">
+      Estilo <a href="#style"><i class="fa fa-link"></i></a>
+    </h3>
+    
+    <p>
+      Todos os elementos possuem classes css para que você possa estilizar o componente da maneira que melhor se adequar a seu projeto.
+    </p>
+  </div>
+  
+  <div class="col-12">
+    <h3 class="anchor" id="example">
+      Exemplo <a href="#example"><i class="fa fa-link"></i></a>
+    </h3>
+    
     <ng-advanced-drag-drop-filter
       filters="vm.filters"
-      default="vm.defaultFilter"
+      selected="vm.selected"
       on-save="vm.onSave($event)"
       on-change-filter="vm.onChange($event)"
       on-set-default="vm.onSetDefault($event)">
@@ -86,6 +368,121 @@
       </div>
 
     </ng-advanced-drag-drop-filter>
+    
+    <h6>Source code</h6>
+    <pre>function config(ngAdvancedDragDropFilterConfigProvider) {
+  ngAdvancedDragDropFilterConfigProvider.setDefaults({
+    texts: {
+      filterSelectionLabelText: 'Available filters',
+      setDefaultButtonText: 'Make default',
+      editButtonText: 'Edit filter',
+      newButtonText: 'New filter',
+      cancelButtonText: 'Cancel form',
+      saveButtonText: 'Save form',
+      selectedFilterLabelText: 'Selected filter\'s name: ',
+      availableContainerLabelText: 'Available fields for selection',
+      selectedEmptyMessageText: 'Select or create a new filter configuration, it\'s simple!'
+    },
+    styleClasses: {
+      setDefaultButtonClass: 'btn btn-secondary',
+      newButtonClass: 'btn btn-primary',
+      editButtonClass: 'btn btn-info',
+      saveButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      selectedEmptyMessageClass: 'alert alert-warning'
+    },
+    iconPrefix: 'fa'
+  });
+}
+
+function controller() {
+  var self = this;
+  
+  self.filters = [
+    {
+      id: 1,
+      name: 'Filtro 1',
+      fields: ['input', 'select']
+    },
+    {
+      id: 2,
+      name: 'Filtro 2',
+      fields: ['range', 'datepicker']
+    }
+  ];
+  
+  self.selected = self.filters[0];
+  
+  self.onSave = function(savedFilter) {
+    console.log('salvou', savedFilter);
+    if (savedFilter.id) {
+      var filter = self.filters.find(function(f) {
+        return f.id === savedFilter.id;
+      });
+      
+      filter.name = savedFilter.name;
+      filter.fields = savedFilter.fields;
+    } else {
+      savedFilter.id = self.filters.length + 1;
+      self.filters.push(savedFilter);
+    }
+  };
+
+  self.onChange = function(filter) {
+    console.log('mudou para', filter)
+  };
+
+  self.onSetDefault = function(filter) {
+    console.log('set default', filter);
+  }
+}
+      
+&lt;ng-advanced-drag-drop-filter
+  filters="vm.filters"
+  selected="vm.selected"
+  on-save="vm.onSave($event)"
+  on-change-filter="vm.onChange($event)"
+  on-set-default="vm.onSetDefault($event)"&gt;
+  
+  &lt;div data-id="input" data-name="Input" data-icon="fa-keyboard-o" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6"&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label&gt;Input&lt;/label&gt;
+      &lt;input type="text" class="form-control" ng-model="nomeFilter" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div data-id="select" data-name="Select" data-icon="fa-list" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6"&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label&gt;Select&lt;/label&gt;
+      &lt;select&gt;
+        &lt;option&gt;Option 1&lt;/option&gt;
+        &lt;option&gt;Option 2&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div data-id="range" data-name="Range" data-icon="fa-arrows-h" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6"&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label&gt;Range&lt;/label&gt;
+      &lt;input type="range" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div data-id="datepicker" data-name="Datepicker" data-icon="fa-calendar" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6"&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label&gt;Datepicker&lt;/label&gt;
+      &lt;input type="date" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div data-id="color" data-name="Colorpicker" data-icon="fa-tint" draggable="true" class="col-6 col-sm-6 col-md-6 col-lg-6"&gt;
+    &lt;div class="form-group"&gt;
+      &lt;label&gt;Colorpicker&lt;/label&gt;
+      &lt;input type="color" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/ng-advanced-drag-drop-filter&gt;</pre>
   </div>
 </div>
 

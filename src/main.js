@@ -11,14 +11,23 @@
   function config(ngAdvancedDragDropFilterConfigProvider) {
     ngAdvancedDragDropFilterConfigProvider.setDefaults({
       texts: {
-        setDefaultButtonText: 'Definir como padrão'
+        filterSelectionLabelText: 'Available filters',
+        setDefaultButtonText: 'Make default',
+        editButtonText: 'Edit filter',
+        newButtonText: 'New filter',
+        cancelButtonText: 'Cancel form',
+        saveButtonText: 'Save form',
+        selectedFilterLabelText: 'Selected filter\'s name: ',
+        availableContainerLabelText: 'Available fields for selection',
+        selectedEmptyMessageText: 'Select or create a new filter configuration, it\'s simple!'
       },
       styleClasses: {
-        setDefaultButtonClass: 'btn btn-primary',
-        newButtonClass: 'btn btn-secondary',
-        editButtonClass: 'btn btn-secondary',
-        saveButtonClass: 'btn btn-primary',
-        cancelButtonClass: 'btn btn-danger'
+        setDefaultButtonClass: 'btn btn-secondary',
+        newButtonClass: 'btn btn-primary',
+        editButtonClass: 'btn btn-info',
+        saveButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        selectedEmptyMessageClass: 'alert alert-warning'
       },
       iconPrefix: 'fa'
     });
@@ -26,8 +35,6 @@
   
   function controller() {
     var self = this;
-    
-    self.nomeFilter = '';
     
     self.filters = [
       {
@@ -42,7 +49,7 @@
       }
     ];
     
-    self.defaultFilter = self.filters[0];
+    self.selected = self.filters[0];
     
     self.onSave = function(savedFilter) {
       console.log('salvou', savedFilter);
@@ -65,7 +72,6 @@
   
     self.onSetDefault = function(filter) {
       console.log('set default', filter);
-      self.defaultFilter = filter;
     }
   }
   

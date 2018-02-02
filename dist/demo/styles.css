@@ -19,3 +19,12 @@ pre {
   background-color: #eeeeee;
   padding: 8px;
   border-radius: 8px; }
+
+.descriptions {
+  width: 60%; }
+
+.parameters {
+  width: 20%; }
+
+.values {
+  width: 20%; }
