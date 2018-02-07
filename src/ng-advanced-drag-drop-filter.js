@@ -382,7 +382,9 @@
       config = ngAdvancedDragDropFilterConfig.getDefaults($scope.options);
       
       iconPrefix = config.iconPrefix;
-      filterValidationFn = config.filterValidationFn;
+      if (isNotNull(config.filterValidationFn) && isFunction(config.filterValidationFn)) {
+        filterValidationFn = config.filterValidationFn;
+      }
       
       setupStyleClasses();
       setupTexts();
@@ -474,6 +476,10 @@
     function showEditionButton() {
       return !self.isEditing && self.selected;
     }
+  }
+  
+  function isFunction(param) {
+    return typeof param === 'function';
   }
   
   function isNotNull(param) {

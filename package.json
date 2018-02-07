@@ -10,12 +10,16 @@
     "build": "gulp build"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.9.2",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-uglifyjs": "^0.6.2",
     "gulp-watch": "^5.0.0",
     "gulp-webserver": "^0.9.1",
