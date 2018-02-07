@@ -1,7 +1,5 @@
 (function Demo() {
   
-  'use strict';
-  
   angular.module('demo', ['nggs.advanced-drag-drop-filter'])
     .config(config)
     .controller('demoController', controller);
@@ -34,7 +32,7 @@
   }
   
   function controller() {
-    var self = this;
+    const self = this;
     
     self.filters = [
       {
@@ -51,7 +49,7 @@
     
     self.selected = self.filters[0];
     
-    self.onSave = function(savedFilter) {
+    self.onSave = (savedFilter) => {
       console.log('salvou', savedFilter);
       if (savedFilter.id) {
         var filter = self.filters.find(function(f) {
@@ -66,11 +64,11 @@
       }
     };
   
-    self.onChange = function(filter) {
-      console.log('mudou para', filter)
+    self.onChange = (filter) => {
+      console.log('mudou para', filter);
     };
   
-    self.onSetDefault = function(filter) {
+    self.onSetDefault = (filter) => {
       console.log('set default', filter);
     }
   }

@@ -9,6 +9,8 @@ const webserver = require('gulp-webserver');
 const cleanCss = require('gulp-clean-css');
 const fs = require('fs');
 const replace = require('gulp-replace');
+const babel = require('gulp-babel');
+const sourcemaps = require('gulp-sourcemaps');
 
 const packageJson = JSON.parse(fs.readFileSync('./package.json'));
 const componentName = packageJson.name;
@@ -43,14 +45,20 @@ gulp.task('html', () => {
 });
 
 gulp.task('js', () => {
-  gulp.src(`${src}/*.js`)
+  gulp.src(`${src}/**/*.js`)
+    .pipe(sourcemaps.init())
+    .pipe(babel())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(demo));
   
-  return gulp.src(`${src}/${packageJson.name}.js`)
+  gulp.src(`${src}/${packageJson.name}.js`)
+    .pipe(sourcemaps.init())
+    .pipe(babel())
     .pipe(uglifyjs())
     .pipe(rename({
       extname: '.min.js'
     }))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist));
 });
 

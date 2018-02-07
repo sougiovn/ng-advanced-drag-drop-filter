@@ -1,13 +1,11 @@
+'use strict';
+
 (function Demo() {
-  
-  'use strict';
-  
-  angular.module('demo', ['nggs.advanced-drag-drop-filter'])
-    .config(config)
-    .controller('demoController', controller);
-  
-  config.$inject = ['ngAdvancedDragDropFilterConfigProvider']
-  
+
+  angular.module('demo', ['nggs.advanced-drag-drop-filter']).config(config).controller('demoController', controller);
+
+  config.$inject = ['ngAdvancedDragDropFilterConfigProvider'];
+
   function config(ngAdvancedDragDropFilterConfigProvider) {
     ngAdvancedDragDropFilterConfigProvider.setDefaults({
       texts: {
@@ -32,32 +30,29 @@
       iconPrefix: 'fa'
     });
   }
-  
+
   function controller() {
     var self = this;
-    
-    self.filters = [
-      {
-        id: 1,
-        name: 'Filtro 1',
-        fields: ['input', 'select']
-      },
-      {
-        id: 2,
-        name: 'Filtro 2',
-        fields: ['range', 'datepicker']
-      }
-    ];
-    
+
+    self.filters = [{
+      id: 1,
+      name: 'Filtro 1',
+      fields: ['input', 'select']
+    }, {
+      id: 2,
+      name: 'Filtro 2',
+      fields: ['range', 'datepicker']
+    }];
+
     self.selected = self.filters[0];
-    
-    self.onSave = function(savedFilter) {
+
+    self.onSave = function (savedFilter) {
       console.log('salvou', savedFilter);
       if (savedFilter.id) {
-        var filter = self.filters.find(function(f) {
+        var filter = self.filters.find(function (f) {
           return f.id === savedFilter.id;
         });
-        
+
         filter.name = savedFilter.name;
         filter.fields = savedFilter.fields;
       } else {
@@ -65,14 +60,14 @@
         self.filters.push(savedFilter);
       }
     };
-  
-    self.onChange = function(filter) {
-      console.log('mudou para', filter)
+
+    self.onChange = function (filter) {
+      console.log('mudou para', filter);
     };
-  
-    self.onSetDefault = function(filter) {
+
+    self.onSetDefault = function (filter) {
       console.log('set default', filter);
-    }
+    };
   }
-  
 })();
+//# sourceMappingURL=main.js.map
