@@ -284,7 +284,6 @@
     }
     
     function isFilterValid() {
-      console.log(filterValidationFn)
       return filterValidationFn(self.editingFilter);
     }
     
